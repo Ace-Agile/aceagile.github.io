@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://p.trellocdn.com/power-up.min.css">
     <style>
-      form {
+      .form {
         display: flex;
       }
 
@@ -12,22 +12,34 @@
         max-width: 160px;
       }
 
-      form > .column {
+      input[type="button"] {
+        margin-top: 0;
+      }
+
+      .form > .column {
         display: flex;
         flex-direction: column;
       }
 
       .column.first {
-        /* flex: 1 1 20%; */
+        flex: 1 1 20%;
+        padding-left: 1rem;
+        
       }
-      .column {
-        /* flex: 1 1 80%; */
+      .column.second {
+        flex: 1 1 auto;
         display: flex;
       }
 
       .column > div {
         display: flex;
-        padding: 5px;
+      }
+
+      .column.first label {
+        flex: 0 0 5rem;
+      }
+      .column.second label {
+        flex: 0 0 3rem;
       }
 
     
@@ -40,7 +52,7 @@
     </style>
   </head>
   <body>
-    <form>
+    <div class="form">
       <div class="column first">
         <div>
           <label for="inpEstimated">Estimated</label>
@@ -55,7 +67,7 @@
           <input type="button" id="inpDisapprove" value="Disapprove" >
         </div>
       </div>
-      <div class="column">
+      <div class="column second">
         <div>
           <label for="inpStart">Start</label>
           <input type="date" id="inpStart" />
@@ -78,6 +90,6 @@
       
       
       
-    </form>
+    </div>
   </body>
 </html>

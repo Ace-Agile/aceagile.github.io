@@ -6,25 +6,34 @@
     <style>
       form {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
       }
 
-      form > div {
-        flex: 0 0 50%;
+      form > .column {
         display: flex;
-        
-
+        flex-direction: column;
       }
 
-      form > div > input[type='number'],
-      form > div > input[type='datetime'],
-      form > div > input[type='text'],
-      form > div > select {
+      .column.first {
+        flex: 1 1 20%;
+      }
+      .column {
+        flex: 1 1 80%;
+        display: flex;
+      }
+
+      .column > div {
+        display: flex;
+        padding: 5px;
+      }
+
+      input[type='number'],
+      input[type='datetime'],
+      input[type='text'],
+      select {
         flex: 1 1 auto;
       }
 
-      form > div > label {
+      label {
         flex: 0 1 75px;
       }
 
@@ -36,39 +45,41 @@
   </head>
   <body>
     <form>
-      <div>
-        <label for="inpEstimated">Estimated</label>
-        <input type="number" id="inpEstimated" placeholder="0" min="0" max="999" />
+      <div class="column first">
+        <div>
+          <label for="inpEstimated">Estimated</label>
+          <input type="number" id="inpEstimated" placeholder="0" min="0" max="999" />
+        </div>
+        <div>
+          <label for="inpConsumed">Consumed</label>
+          <input type="number" id="inpConsumed" min="0" max="999"   />
+        </div>
+        <div>
+          <input type="button" id="inpApprove" value="Approve" >
+          <input type="button" id="inpDisapprove" value="Disapprove" >
+        </div>
       </div>
-      <div>
-        <label for="inpStart">Start</label>
-        <input type="date" id="inpStart" />
-        <input type="time" id="inpStartTime" step="3000" value="00:00" />
-        <input type="button" class="location-icon"  alt="now date" />
+      <div class="column">
+        <div>
+          <label for="inpStart">Start</label>
+          <input type="date" id="inpStart" />
+          <input type="time" id="inpStartTime" step="3000" value="00:00" />
+          <input type="button" class="location-icon"  alt="now date" />
+        </div>
+        
+        <div>
+          <label for="inpFinish">Finish</label>
+          <input type="date" id="inpFinish" />
+          <input type="time" id="inpFinishTime" step="3000" value="00:00" />
+          <input type="button" class="location-icon" alt="now date" />
+        </div>
+        <div>
+          <label for="chkExternal">ID</label>
+          <input type="text" id="inpExternal" />
+        </div>
       </div>
-      <div>
-        <label for="inpConsumed">Consumed</label>
-        <input type="number" id="inpConsumed" min="0" max="999"   />
-      </div>
-      <div>
-        <label for="inpFinish">Finish</label>
-        <input type="date" id="inpFinish" />
-        <input type="time" id="inpFinishTime" step="3000" value="00:00" />
-        <input type="button" class="location-icon" alt="now date" />
-      </div>
-      <div>
-        <label for="inpAlert">Alert</label>
-        <select id="inpAlert">
-          <option></option>
-          <option>Low</option>
-          <option>Medium</option>
-          <option>High</option>
-        </select>
-      </div>
-      <div>
-        <label for="chkExternal">ID</label>
-        <input type="text" id="inpExternal" />
-      </div>
+      
+      
       
       
     </form>

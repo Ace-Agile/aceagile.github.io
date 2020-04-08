@@ -6,18 +6,30 @@
   <body>
     <script src="https://p.trellocdn.com/power-up.min.js"></script>
     <script>
+      const cardButtons = (t, options) => {
+        console.log("t", t)
+        console.log("options", options)
+        return [{
+          icon: 'https://raw.githubusercontent.com/ace-agile/ace-agile.github.io/master/images/thumbs-up.png',
+          text: 'Like'
+        }, {
+          text: 'Estimate'
+        }];
+      }
+
+      const cardBack =  (t, options) => ({
+        title: 'Ace Agile Fields',
+        content: {
+          type: 'iframe',
+          url: t.signUrl('./card-back.html'),
+          height: 500 // Max height is 500
+        }
+      })
+
       console.log("loaded power up")
       TrelloPowerUp.initialize({
-        'card-buttons': function(t, options){
-          console.log("t", t)
-          console.log("options", options)
-          return [{
-            icon: 'https://raw.githubusercontent.com/ace-agile/ace-agile.github.io/master/images/thumbs-up.png',
-            text: 'Like'
-          }, {
-            text: 'Estimate'
-          }];
-        },
+        'card-buttons': cardButtons,
+        'card-back-section': cardBack
       });
 
       const getCards = (listElement) => listElement.querySelectorAll(".list-cards a")
@@ -35,7 +47,7 @@
           })
       }
 
-      setInterval(() => updateListsSize(), 500)
+      //setInterval(() => updateListsSize(), 500)
     </script>
   </body>
 </html>

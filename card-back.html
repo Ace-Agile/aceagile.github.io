@@ -1,0 +1,58 @@
+<style>
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  form > div {
+    flex: 0 0 47%;
+    display: flex;
+    
+
+  }
+
+  form > div > input[type='number'],
+  form > div > input[type='datetime'],
+  form > div > input[type='text'],
+  form > div > select {
+    flex: 1 1 auto;
+  }
+
+  form > div > label {
+    flex: 0 1 75px;
+  }
+</style>
+<form>
+  <div>
+    <label for="inpEstimated">Estimated</label>
+    <input type="number" id="inpEstimated" />
+  </div>
+  <div>
+    <label for="inpStart">Start</label>
+    <input type="datetime" id="inpStart" />
+  </div>
+  <div>
+    <label for="inpConsumed">Consumed</label>
+    <input type="number" id="inpConsumed" />
+  </div>
+  <div>
+    <label for="inpFinish">Finish</label>
+    <input type="datetime" id="inpFinish" />
+  </div>
+  <div>
+    <label for="inpAlert">Alert</label>
+    <select id="inpAlert">
+      <option></option>
+      <option>Low</option>
+      <option>Medium</option>
+      <option>High</option>
+    </select>
+  </div>
+  <div>
+    <label for="chkExternal">ID</label>
+    <input type="text" id="inpExternal" />
+  </div>
+  
+  
+</form>

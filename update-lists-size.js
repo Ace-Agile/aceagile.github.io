@@ -1,7 +1,7 @@
 const getCards = (listElement) => listElement.querySelectorAll(".list-cards a")
 
 const updateListsSize = () => {
-  document.querySelectorAll(".list")
+  parent.document.querySelectorAll(".list")
     .forEach((list) => {
       const cards = getCards(list)
       const limitBadge = list.querySelector(".js-list-limit-badge")

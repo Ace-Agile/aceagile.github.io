@@ -12,16 +12,19 @@
         console.log("t", t)
         console.log("options", options)
         return [{
-          icon: 'https://raw.githubusercontent.com/ace-agile/ace-agile.github.io/master/images/thumbs-up.png',
-          text: 'Like'
+          icon: 'https://raw.githubusercontent.com/ace-agile/ace-agile.github.io/master/images/thumbsup.svg',
+          text: 'Like',
+          condition: 'signedIn'
         }, {
-          text: 'Estimate'
+          text: 'Validate',
+          'https://raw.githubusercontent.com/ace-agile/ace-agile.github.io/master/images/star.svg',
+          condition: 'edit'
         }];
       }
 
       const cardBack =  (t, options) => ({
         title: 'Ace Agile Fields',
-        icon: 'https://cdn.hyperdev.com/us-east-1%3A3d31b21c-01a0-4da2-8827-4bc6e88b7618%2Ficon-gray.svg',
+        icon: 'https://raw.githubusercontent.com/ace-agile/ace-agile.github.io/master/images/spade.svg',
         content: {
           type: 'iframe',
           url: t.signUrl('./card-back.html'),

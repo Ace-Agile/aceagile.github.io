@@ -5,7 +5,7 @@
   </head>
   <body>
     <script src="https://p.trellocdn.com/power-up.min.js"></script>
-    
+    <script src="update-lists-size.js"></script>
     <script>
       console.log("loaded power up")
       TrelloPowerUp.initialize({
@@ -15,9 +15,28 @@
           return [{
             icon: 'https://raw.githubusercontent.com/ace-agile/ace-agile.github.io/master/images/thumbs-up.png',
             text: 'Like'
+          }, {
+            text: 'Estimate'
           }];
         },
       });
+
+      const getCards = (listElement) => listElement.querySelectorAll(".list-cards a")
+
+      const updateListsSize = () => {
+        console.log("parent", parent.document.querySelectorAll(".list"))
+        console.log("document", document.querySelectorAll(".list"))
+
+        parent.document.querySelectorAll(".list")
+          .forEach((list) => {
+            const cards = getCards(list)
+            const limitBadge = list.querySelector(".js-list-limit-badge")
+            limitBadge.classList.remove("hide")
+            limitBadge.innerHTML = cards.length
+          })
+      }
+
+      setInterval(() => updateListsSize(), 500)
     </script>
   </body>
 </html>

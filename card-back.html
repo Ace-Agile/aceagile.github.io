@@ -16,6 +16,10 @@
         margin-top: 0;
       }
 
+      #inpExternal {
+        width: 13.2rem;
+      }
+
       .form > .column {
         display: flex;
         flex-direction: column;
@@ -23,8 +27,6 @@
 
       .column.first {
         flex: 1 1 20%;
-        padding-left: 1rem;
-        
       }
       .column.second {
         flex: 1 1 auto;
@@ -48,6 +50,7 @@
       .location-icon {
         background-image: url("https://ace-agile.github.io/images/location.svg");
         background-repeat: no-repeat;
+        background-position: 0 6px;
       }
     </style>
   </head>
@@ -71,14 +74,14 @@
         <div>
           <label for="inpStart">Start</label>
           <input type="date" id="inpStart" />
-          <input type="time" id="inpStartTime" step="3000" value="00:00" />
+          <!-- <input type="time" id="inpStartTime" step="3000" value="00:00" /> -->
           <input type="button" class="location-icon"  alt="now date" />
         </div>
         
         <div>
           <label for="inpFinish">Finish</label>
           <input type="date" id="inpFinish" />
-          <input type="time" id="inpFinishTime" step="3000" value="00:00" />
+          <!-- <input type="time" id="inpFinishTime" step="3000" value="00:00" /> -->
           <input type="button" class="location-icon" alt="now date" />
         </div>
         <div>

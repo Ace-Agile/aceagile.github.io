@@ -59,16 +59,14 @@
   <body>
     <script>
       var t = window.TrelloPowerUp.iframe();
-      t.getAll().then((data) => {
-          console.log(JSON.stringify(data, null, 2));
-        });
 
-        function save({ id, value }) {
-          console.log(id, value)
-          t.set('card', 'shared', id, value)
-        }
+      function save({ id, value }) {
+        console.log(id, value)
+        t.set('card', 'shared', id, value)
+      }
     </script>
-    <div class="form">
+    <div class="loading">Loading...</div>
+    <div class="form" style="display: none;">
       <div class="column first">
         <div>
           <label for="inpEstimated">Estimated</label>
@@ -103,6 +101,30 @@
         </div>
       </div>
     </div>
-    
+    <script>
+      t.getAll().then((data) => {
+          data = {
+            "card": {
+              "shared": {
+                "estimated": "",
+                "inpEstimated": "3",
+                "inpExternal": "noix"
+              }
+            }
+          }
+
+          const fields = data.card.shared
+          Object.keys(fields).map((key) => {
+            const element = document.getElementById(key)
+            if(element){
+              element.value = fields[key]
+            }
+            
+          })
+
+          document.getElementById("loading").style.display = 'none';
+          document.getElementById("form").style.display = 'block';
+      });
+    </script>
   </body>
 </html>

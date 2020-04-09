@@ -59,8 +59,8 @@
   <body>
     <script>
       var t = window.TrelloPowerUp.iframe();
-      
-      if(t.options = {}) {
+      console.log(t)
+      if(t.options = 222) {
         // mock trello locally
         t.set = (a, b, c, d) => console.log(`set ${a}, ${b}, ${c}, ${d}`)
         t.getAll = () => Promise.resolve({
@@ -127,7 +127,7 @@
           })
 
           document.getElementById("loading").style.display = 'none';
-          document.getElementById("form").style.display = 'block';
+          document.getElementById("form").style.display = 'flex';
       });
     </script>
   </body>

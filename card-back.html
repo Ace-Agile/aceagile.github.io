@@ -65,12 +65,7 @@
 
         function save({ id, value }) {
           console.log(id, value)
-          t.set('card', 'shared', {
-            estimated: document.getElementById("inpEstimated").value,
-            estimated: document.getElementById("inpEstimated").value,
-            estimated: document.getElementById("inpEstimated").value,
-            estimated: document.getElementById("inpEstimated").value,
-          })
+          t.set('card', 'shared', id, value)
         }
     </script>
     <div class="form">

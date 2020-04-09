@@ -59,14 +59,28 @@
   <body>
     <script>
       var t = window.TrelloPowerUp.iframe();
+      
+      if(t.options = {}) {
+        // mock trello locally
+        t.set = (a, b, c, d) => console.log(`set ${a}, ${b}, ${c}, ${d}`)
+        t.getAll = () => Promise.resolve({
+            "card": {
+              "shared": {
+                "estimated": "",
+                "inpEstimated": "3",
+                "inpExternal": "noix"
+              }
+            }
+          })
+      }
 
       function save({ id, value }) {
         console.log(id, value)
         t.set('card', 'shared', id, value)
       }
     </script>
-    <div class="loading">Loading...</div>
-    <div class="form" style="display: none;">
+    <div id="loading" class="loading">Loading...</div>
+    <div id="form" class="form" style="display: none;">
       <div class="column first">
         <div>
           <label for="inpEstimated">Estimated</label>
@@ -103,16 +117,6 @@
     </div>
     <script>
       t.getAll().then((data) => {
-          data = {
-            "card": {
-              "shared": {
-                "estimated": "",
-                "inpEstimated": "3",
-                "inpExternal": "noix"
-              }
-            }
-          }
-
           const fields = data.card.shared
           Object.keys(fields).map((key) => {
             const element = document.getElementById(key)

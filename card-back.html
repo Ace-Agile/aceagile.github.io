@@ -55,15 +55,31 @@
     </style>
   </head>
   <body>
+    <script>
+      var t = window.TrelloPowerUp.iframe();
+      t.getAll().then((data) => {
+          console.log(JSON.stringify(data, null, 2));
+        });
+
+        function save({ id, value }) {
+          console.log(id, value)
+          t.set('card', 'shared', {
+            estimated: document.getElementById("inpEstimated").value,
+            estimated: document.getElementById("inpEstimated").value,
+            estimated: document.getElementById("inpEstimated").value,
+            estimated: document.getElementById("inpEstimated").value,
+          })
+        }
+    </script>
     <div class="form">
       <div class="column first">
         <div>
           <label for="inpEstimated">Estimated</label>
-          <input type="number" id="inpEstimated" placeholder="0" min="0" max="999" />
+          <input type="number" id="inpEstimated" placeholder="0" min="0" max="999" onkeyup="javascript:save(this)" onmouseup="javascript:save(this)" />
         </div>
         <div>
           <label for="inpConsumed">Consumed</label>
-          <input type="number" id="inpConsumed" min="0" max="999"   />
+          <input type="number" id="inpConsumed" min="0" max="999" onkeyup="javascript:save(this)" onmouseup="javascript:save(this)"  />
         </div>
         <div>
           <input type="button" id="inpApprove" value="Approve" >
@@ -73,28 +89,23 @@
       <div class="column second">
         <div>
           <label for="inpStart">Start</label>
-          <input type="date" id="inpStart" />
+          <input type="date" id="inpStart" onchange="javascript:save(this)"  />
           <!-- <input type="time" id="inpStartTime" step="3000" value="00:00" /> -->
           <input type="button" class="location-icon"  alt="now date" />
         </div>
         
         <div>
           <label for="inpFinish">Finish</label>
-          <input type="date" id="inpFinish" />
+          <input type="date" id="inpFinish" onchange="javascript:save(this)" />
           <!-- <input type="time" id="inpFinishTime" step="3000" value="00:00" /> -->
           <input type="button" class="location-icon" alt="now date" />
         </div>
         <div>
           <label for="chkExternal">ID</label>
-          <input type="text" id="inpExternal" />
+          <input type="text" id="inpExternal" onkeyup="javascript:save(this)" />
         </div>
       </div>
     </div>
-    <script>
-      var t = window.TrelloPowerUp.iframe();
-      t.getAll().then((data) => {
-          console.log(JSON.stringify(data, null, 2));
-        });
-    </script>
+    
   </body>
 </html>

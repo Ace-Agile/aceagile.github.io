@@ -89,10 +89,12 @@
           <input type="text" id="inpExternal" />
         </div>
       </div>
-      
-      
-      
-      
     </div>
+    <script>
+      var t = window.TrelloPowerUp.iframe();
+      t.getAll().then((data) => {
+          console.log(JSON.stringify(data, null, 2));
+        });
+    </script>
   </body>
 </html>

@@ -42,12 +42,15 @@
         return getCardData(t).then((data) => {
           const { estimated, consumed, start, finish, approves, disapproves, external } = data
             const badges = []
-
-            badges.push({
-              text: '5',
-              icon: 'https://ace-agile.github.io/images/bulb.svg',
-              color: 'blue'
-            })
+            console.log(data)
+            if(estimated){
+              badges.push({
+                text: estimated,
+                icon: 'https://ace-agile.github.io/images/bulb.svg',
+                color: 'blue'
+              })
+            }
+            
 
             badges.push({
               text: '7',

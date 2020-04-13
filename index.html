@@ -44,13 +44,13 @@
             const badges = []
 
             badges.push({
-              text: 'Estimated',
+              text: '5',
               icon: 'https://ace-agile.github.io/images/bulb.svg',
               color: 'blue'
             })
 
             badges.push({
-              text: 'Consumed',
+              text: '7',
               icon: 'https://ace-agile.github.io/images/finishflag.svg',
               color: 'orange'
             })
@@ -66,11 +66,24 @@
               icon: 'https://ace-agile.github.io/images/finishflag.svg',
               color: 'green'
             })
-
+            
+            const text = 'This is an awkward text that I have placed here by some reason, duh!'
             badges.push({
-              text: 'This is an awkward text that I have placed here by some reason, duh!',
+              text: text && text.length > 25 ? text.substring(0, 25) + '...' ? text,
               icon: 'https://ace-agile.github.io/images/page.svg',
               color: undefined
+            })
+
+            badges.push({
+              text: '4',
+              icon: 'https://ace-agile.github.io/images/thumbsup.svg',
+              color: 'lime'
+            })
+
+            badges.push({
+              text: '2',
+              icon: 'https://ace-agile.github.io/images/thumbsdown.svg',
+              color: 'red'
             })
             // if(estimated) {
               

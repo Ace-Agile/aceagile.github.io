@@ -83,9 +83,8 @@
         const property = id.replace('inp', '').toLowerCase()
         value.replace(/-/g, ",")
         const jsonDate = new Date(value)
-        JSON.stringify(jsonDate)
         console.log(jsonDate)
-        
+
         t.set('card', 'shared', property, value)
       }
 

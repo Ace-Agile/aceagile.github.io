@@ -44,7 +44,7 @@
 
         console.log('start', date, 'current', currentDate)
 
-        if (date.start === currentDate) {
+        if (date.start.getTime() === currentDate.getTime()) {
           console.log('TODAY')
         } else {
           console.log('NOT TODAY SATAN')

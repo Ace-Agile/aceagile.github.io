@@ -39,7 +39,15 @@
         })
 
       const formatDate = (date) => {
-        console.log('data', date)
+        const currentDate = new Date()
+        JSON.stringify(currentDate)
+        console.log(currentDate)
+
+        if (date === currentDate) {
+          return 'today'
+        } else {
+          return start
+        }
       }
 
       const cardBadges = (t, opts) => {

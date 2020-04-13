@@ -33,29 +33,59 @@
       const getCardData = (t) => t.getAll()
         .then((data) => {
           if(data.card && data.card.shared){
-            const { estimated, consumed, start, finish, approves, disapproves, external } = data.card.shared
             return data.card.shared
           }
           return {}
         })
 
       const cardBadges = (t, opts) => {
-        return t.card('id')
-        .then(function(id){
 
-          getCardData(t).then((data) => {
-            console.log("custom data", data)
-            return [{
-              text: 'One2',
-              icon: 'https://ace-agile.github.io/images/star.svg', // for card front badges only
-              color: 'green'
-            },{
-              text: 'Due',
-              icon: 'https://ace-agile.github.io/images/spade.svg', // for card front badges only
+        getCardData(t).then((data) => {
+          const { estimated, consumed, start, finish, approves, disapproves, external } = data
+            const badges = []
+
+            badges.push({
+              text: 'Estimated',
+              icon: 'https://ace-agile.github.io/images/bulb.svg',
+              color: 'blue'
+            })
+
+            badges.push({
+              text: 'Consumed',
+              icon: 'https://ace-agile.github.io/images/finishflag.svg',
               color: 'orange'
-            }]
+            })
+
+            badges.push({
+              text: '12 days ago',
+              icon: 'https://ace-agile.github.io/images/calendar2.svg',
+              color: 'orange'
+            })
+
+            badges.push({
+              text: '3 days ago',
+              icon: 'https://ace-agile.github.io/images/finishflag.svg',
+              color: 'green'
+            })
+
+            badges.push({
+              text: 'This is an awkward text that I have placed here by some reason, duh!',
+              icon: 'https://ace-agile.github.io/images/page.svg',
+              color: undefined
+            })
+            // if(estimated) {
+              
+            // }
+
+            return t.card('id')
+            .then(function(id){
+              return badges
+            })
+            
+            
           })
-        })
+
+       
       }
 
       console.log("loaded power up")

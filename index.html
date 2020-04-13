@@ -39,16 +39,22 @@
         })
 
       const formatDate = (date) => {
+        // Gets todays date
         const nowDate = new Date()
         nowDate.setHours(0, 0, 0, 0)
 
+        // Start/Finish date
         const displayDate = new Date(date)
         displayDate.setHours(0, 0, 0, 0)
    
+        // Calculates days that passed 
+        const daysPassed = new Date()
+        daysPassed.setDate(daysPassed.getDate() - 7)
+
         console.log("nowdate", nowDate)
         console.log("displayDate", displayDate)
         
-        if (date.getTime() === nowDate.getTime()) {
+        if (displayDate.getTime() === nowDate.getTime()) {
           console.log('TODAY')
         } else {
           console.log('NOT TODAY SATAN')

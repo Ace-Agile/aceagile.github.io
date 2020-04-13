@@ -39,7 +39,6 @@
         })
 
       const cardBadges = (t, opts) => {
-
         getCardData(t).then((data) => {
           const { estimated, consumed, start, finish, approves, disapproves, external } = data
             const badges = []
@@ -77,8 +76,12 @@
               
             // }
 
-            return t.card('id')
-            .then(function(id){
+            const a = t.card('id')
+            
+            console.log('a', a)
+            
+            a.then(function(id){
+              console.log("id?", id)
               return badges
             })
             

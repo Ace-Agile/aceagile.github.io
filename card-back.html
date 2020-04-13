@@ -66,17 +66,16 @@
         t.getAll = () => Promise.resolve({
             "card": {
               "shared": {
-                "estimated": "",
-                "inpEstimated": "3",
-                "inpExternal": "noix"
+                "estimated": "3",
+                "external": "noix"
               }
             }
           })
       }
 
       function save({ id, value }) {
-        console.log(id, value)
-        t.set('card', 'shared', id, value)
+        const property = id.replace('inp', '').toLowerCase()
+        t.set('card', 'shared', property, value)
       }
     </script>
     <div id="loading" class="loading">Loading...</div>
@@ -119,7 +118,8 @@
       t.getAll().then((data) => {
           const fields = data.card.shared
           Object.keys(fields).map((key) => {
-            const element = document.getElementById(key)
+            const inputName = `inp${key[0].toUpperCase + key.slice(1)}`
+            const element = document.getElementById(inputName)
             if(element){
               element.value = fields[key]
             }

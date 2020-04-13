@@ -34,10 +34,11 @@
         let cardAttachments = opts.attachments; // Trello passes you the attachments on the card
         console.log("card t", t)
         console.log("card opts", opts)
+        debugger
         return t.card('name')
-        .get('name')
-        .then(function(cardName){
-          console.log('We just loaded the card name for fun: ' + cardName);
+        .getAll()
+        .then(function(data){
+          console.log('data', data);
           return [{
             text: 'One',
             icon: 'https://ace-agile.github.io/images/star.svg', // for card front badges only

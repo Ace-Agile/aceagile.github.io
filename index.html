@@ -43,7 +43,7 @@
           const { estimated, consumed, start, finish, approves, disapproves, external } = data
             const badges = []
             console.log(data)
-            
+
             if(estimated){
               badges.push({
                 text: estimated,
@@ -59,20 +59,20 @@
                 color: 'sky'
               })
             }
+
+            if(start){
+              badges.push({
+                text: start,
+                icon: 'https://ace-agile.github.io/images/bulb.svg',
+                color: 'green'
+              })
+            }
             
             if(finish) {
-              badges.push({
+                badges.push({
                 text: finish,
                 icon: 'https://ace-agile.github.io/images/finishflag.svg',
                 color: 'orange'
-              })
-            }
-
-            if(start) {
-                badges.push({
-                text: start,
-                icon: 'https://ace-agile.github.io/images/flag.svg',
-                color: 'green'
               })
             }
 

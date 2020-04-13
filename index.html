@@ -40,12 +40,11 @@
 
       const formatDate = (date) => {
         const currentDate = new Date()
-        currentDate.setHours(0,0,0,0)
-        const jsonDate = JSON.stringify(currentDate)
+        currentDate.setHours(0, 0, 0, 0)
 
-        console.log('start', date, 'current', jsonDate)
+        console.log('start', date, 'current', currentDate)
 
-        if (date.start === jsonDate) {
+        if (date.start === currentDate) {
           console.log('TODAY')
         } else {
           console.log('NOT TODAY SATAN')

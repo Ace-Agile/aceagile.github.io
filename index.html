@@ -35,8 +35,7 @@
         console.log("card t", t)
         console.log("card opts", opts)
 
-        return t.card('name')
-        .getAll()
+        return t.card('all')
         .then(function(data){
           console.log('data', data);
           return [{

@@ -38,10 +38,6 @@
           return {}
         })
 
-      const formatDate = (date) => {
-        console.log(date)
-      }
-
       const cardBadges = (t, opts) => {
         return getCardData(t).then((data) => {
           const { estimated, consumed, start, finish, approves, disapproves, external } = data
@@ -66,7 +62,7 @@
 
             if(start){
               badges.push({
-                text: formatDate(start),
+                text: start,
                 icon: 'https://ace-agile.github.io/images/bulb.svg',
                 color: 'green'
               })
@@ -87,17 +83,22 @@
               color: undefined
             })
 
-            badges.push({
-              text: '4',
-              icon: 'https://ace-agile.github.io/images/thumbsup.svg',
-              color: 'lime'
-            })
+            if(approves) {
+                badges.push({
+                text: approves,
+                icon: 'https://ace-agile.github.io/images/thumbsup.svg',
+                color: 'lime'
+              })
+            }
 
-            badges.push({
-              text: '2',
-              icon: 'https://ace-agile.github.io/images/thumbsdown.svg',
-              color: 'red'
-            })
+            if(disapproves) {
+                badges.push({
+                text: disapproves,
+                icon: 'https://ace-agile.github.io/images/thumbsdown.svg',
+                color: 'red'
+              })
+            }
+
             // if(estimated) {
               
             // }

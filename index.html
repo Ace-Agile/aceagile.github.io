@@ -30,31 +30,32 @@
         }
       })
 
+      const getCardData = (t) => t.getAll()
+        .then((data) => {
+          if(data.card && data.card.shared){
+            const { estimated, consumed, start, finish, approves, disapproves, external } = shared
+            return shared
+          }
+          return {}
+        })
+
       const cardBadges = (t, opts) => {
-        let cardAttachments = opts.attachments; // Trello passes you the attachments on the card
-        console.log("card t", t)
-        console.log("card opts", opts)
-
-        return t.getAll()
-         .then(x => {
-           console.log("DU", x)
-         })
-
         return t.card('id')
         .then(function(id){
 
-    
-          console.log('data', id);
-          return [{
-            text: 'One',
-            icon: 'https://ace-agile.github.io/images/star.svg', // for card front badges only
-            color: 'green'
-          },{
-            text: 'Due',
-            icon: 'https://ace-agile.github.io/images/spade.svg', // for card front badges only
-            color: 'orange'
-          }];
-        });
+          getCardData(t).then((data) => {
+            console.log("custom data", data)
+            return [{
+              text: 'One2',
+              icon: 'https://ace-agile.github.io/images/star.svg', // for card front badges only
+              color: 'green'
+            },{
+              text: 'Due',
+              icon: 'https://ace-agile.github.io/images/spade.svg', // for card front badges only
+              color: 'orange'
+            }]
+          })
+        })
       }
 
       console.log("loaded power up")

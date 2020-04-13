@@ -116,15 +116,17 @@
     </div>
     <script>
       t.getAll().then((data) => {
-          const fields = data.card.shared
-          Object.keys(fields).map((key) => {
-            const inputName = `inp${key[0].toUpperCase() + key.slice(1)}`
-            const element = document.getElementById(inputName)
-            if(element){
-              element.value = fields[key]
-            }
-            
-          })
+          if(data && data.card && data.card.shared){
+            const fields = data && data.card && data.card.shared
+            Object.keys(fields).map((key) => {
+              const inputName = `inp${key[0].toUpperCase() + key.slice(1)}`
+              const element = document.getElementById(inputName)
+              if(element){
+                element.value = fields[key]
+              }
+              
+            })
+          }
 
           document.getElementById("loading").style.display = 'none';
           document.getElementById("form").style.display = 'flex';

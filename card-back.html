@@ -84,9 +84,7 @@
         value.replace(/-/g, ",")
         const valueDate = new Date(value)
 
-        console.log(jsonDate)
-
-        t.set('card', 'shared', property, jsonDate)
+        t.set('card', 'shared', property, valueDate)
       }
 
     </script>

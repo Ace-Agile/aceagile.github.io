@@ -15,7 +15,7 @@
           condition: 'signedIn'
         }, {
           text: 'Validate',
-          icon: 'https://ace-agile.github.io/images/images/star.svg',
+          icon: 'https://ace-agile.github.io/images/star.svg',
           condition: 'edit'
         }];
       }
@@ -29,6 +29,24 @@
           height: 163 // Max height is 500
         }
       })
+
+      const cardBadges = (t, opts) => {
+        let cardAttachments = opts.attachments; // Trello passes you the attachments on the card
+        return t.card('name')
+        .get('name')
+        .then(function(cardName){
+          console.log('We just loaded the card name for fun: ' + cardName);
+          return [{
+            text: 'One',
+            icon: 'https://ace-agile.github.io/images/star.svg', // for card front badges only
+            color: 'green'
+          },{
+            text: 'Due',
+            icon: 'https://ace-agile.github.io/images/spade.svg', // for card front badges only
+            color: 'orange'
+          }];
+        });
+      }
 
       console.log("loaded power up")
       TrelloPowerUp.initialize({

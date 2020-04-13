@@ -118,7 +118,7 @@
       t.getAll().then((data) => {
           const fields = data.card.shared
           Object.keys(fields).map((key) => {
-            const inputName = `inp${key[0].toUpperCase + key.slice(1)}`
+            const inputName = `inp${key[0].toUpperCase() + key.slice(1)}`
             const element = document.getElementById(inputName)
             if(element){
               element.value = fields[key]

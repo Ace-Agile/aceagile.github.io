@@ -81,8 +81,11 @@
 
       function saveDate({ id, value }) {
         const property = id.replace('inp', '').toLowerCase()
-        JSON.stringify(value)
-        console.log(value)
+        value.replace(/-/g, ",")
+        const jsonDate = new Date(value)
+        JSON.stringify(jsonDate)
+        console.log(jsonDate)
+        
         t.set('card', 'shared', property, value)
       }
 

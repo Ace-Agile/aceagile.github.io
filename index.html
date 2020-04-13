@@ -39,18 +39,17 @@
         })
 
       const formatDate = (t) => {
-        t.getAll().then((data) => {
-          const { start, finish } = data 
-          console.log('start', start, 'finish', finish, data)
-        })
+        t.get('start', 'finish')
+        .then((data) => console.log(data))
       }
+
+      formatDate(t)
 
       const cardBadges = (t, opts) => {
         return getCardData(t).then((data) => {
           const { estimated, consumed, start, finish, approves, disapproves, external } = data
             const badges = []
             console.log(data)
-            formatDate(t)
 
             if(estimated){
               badges.push({

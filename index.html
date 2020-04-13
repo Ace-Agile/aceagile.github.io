@@ -34,7 +34,7 @@
         let cardAttachments = opts.attachments; // Trello passes you the attachments on the card
         console.log("card t", t)
         console.log("card opts", opts)
-        debugger
+
         return t.card('name')
         .getAll()
         .then(function(data){

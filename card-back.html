@@ -78,6 +78,14 @@
         console.log(value)
         t.set('card', 'shared', property, value)
       }
+
+      function saveDate({ id, value }) {
+        const property = id.replace('inp', '').toLowerCase()
+        value.toJSON().toUTCString()
+        console.log(value)
+        t.set('card', 'shared', property, value)
+      }
+
     </script>
     <div id="loading" class="loading">Loading...</div>
     <div id="form" class="form" style="display: none;">
@@ -98,14 +106,14 @@
       <div class="column second">
         <div>
           <label for="inpStart">Start</label>
-          <input type="date" id="inpStart" onchange="javascript:save(this)"  />
+          <input type="date" id="inpStart" onchange="javascript:saveDate(this)"  />
           <!-- <input type="time" id="inpStartTime" step="3000" value="00:00" /> -->
           <input type="button" class="location-icon"  alt="now date" />
         </div>
         
         <div>
           <label for="inpFinish">Finish</label>
-          <input type="date" id="inpFinish" onchange="javascript:save(this)" />
+          <input type="date" id="inpFinish" onchange="javascript:saveDate(this)" />
           <!-- <input type="time" id="inpFinishTime" step="3000" value="00:00" /> -->
           <input type="button" class="location-icon" alt="now date" />
         </div>

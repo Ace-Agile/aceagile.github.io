@@ -38,6 +38,10 @@
           return {}
         })
 
+      const displayDate = (t) => {
+        t.getAll().then((data => console.log(data.start, data.finish)))
+      }
+
       const cardBadges = (t, opts) => {
         return getCardData(t).then((data) => {
           const { estimated, consumed, start, finish, approves, disapproves, external } = data

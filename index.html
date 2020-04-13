@@ -43,6 +43,7 @@
           const { estimated, consumed, start, finish, approves, disapproves, external } = data
             const badges = []
             console.log(data)
+
             if(estimated){
               badges.push({
                 text: estimated,
@@ -50,26 +51,31 @@
                 color: 'blue'
               })
             }
+
+            if(consumed) {
+              badges.push({
+                text: consumed,
+                icon: 'https://ace-agile.github.io/images/bulb.svg',
+                color: 'sky'
+              })
+            }
+
+            if(start){
+              badges.push({
+                text: start,
+                icon: 'https://ace-agile.github.io/images/bulb.svg',
+                color: 'green'
+              })
+            }
             
+            if(finish) {
+                badges.push({
+                text: finish,
+                icon: 'https://ace-agile.github.io/images/finishflag.svg',
+                color: 'orange'
+              })
+            }
 
-            badges.push({
-              text: '7',
-              icon: 'https://ace-agile.github.io/images/finishflag.svg',
-              color: 'orange'
-            })
-
-            badges.push({
-              text: '12 days ago',
-              icon: 'https://ace-agile.github.io/images/calendar2.svg',
-              color: 'orange'
-            })
-
-            badges.push({
-              text: '3 days ago',
-              icon: 'https://ace-agile.github.io/images/finishflag.svg',
-              color: 'green'
-            })
-            
             const text = 'This is an awkward text that I have placed here by some reason, duh!'
             badges.push({
               text: text && text.length > 25 ? text.substring(0, 25) + '...' : text,

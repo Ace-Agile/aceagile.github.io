@@ -83,8 +83,7 @@
         const property = id.replace('inp', '').toLowerCase()
         value.replace(/-/g, ",")
         const valueDate = new Date(value)
-        console.log(valueDate)
-
+        
         t.set('card', 'shared', property, valueDate)
       }
 

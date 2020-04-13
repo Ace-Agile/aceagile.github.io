@@ -75,6 +75,7 @@
 
       function save({ id, value }) {
         const property = id.replace('inp', '').toLowerCase()
+        console.log(value)
         t.set('card', 'shared', property, value)
       }
     </script>

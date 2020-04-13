@@ -38,6 +38,10 @@
           return {}
         })
 
+      const formatDate = (date) => {
+        console.log('data', date)
+      }
+
       const cardBadges = (t, opts) => {
         return getCardData(t).then((data) => {
           const { estimated, consumed, start, finish, approves, disapproves, external } = data
@@ -62,7 +66,7 @@
 
             if(start){
               badges.push({
-                text: start,
+                text: formatDate(start),
                 icon: 'https://ace-agile.github.io/images/bulb.svg',
                 color: 'green'
               })
@@ -70,7 +74,7 @@
             
             if(finish) {
                 badges.push({
-                text: finish,
+                text: formatDate(finish),
                 icon: 'https://ace-agile.github.io/images/finishflag.svg',
                 color: 'orange'
               })
